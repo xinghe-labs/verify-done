@@ -33,12 +33,6 @@ npx skills add xinghe-labs/verify-done
 - **全环境覆盖**：有/无测试基建、有/无 git、dev server、CLI、notebook、视觉改动各有对应验证手段
 - **迭代实证**：经三轮自我拷问 + 8 类用户画像（电商/运维/数据科学/独立开发/前端/移动端等）走查修出 9 个缺口
 
-## 边界（刻意不做）
-
-- 不管 diff 质量审查（代码写得好不好）——交给 code-review 类 skill
-- 不管怎么修 bug——交给 TDD / 诊断类 skill
-- 不管非代码产出（文档、调研）
-
 ## License
 
 MIT
