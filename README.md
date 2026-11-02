@@ -8,7 +8,7 @@ AI 编程 agent 的完成前自检 skill（Agent Skills 规范，适用于 Pi / 
 
 ```bash
 # Pi
-git clone https://github.com/xinghe-labs/verify-before-done ~/.pi/agent/skills/verify-before-done
+git clone https://github.com/xinghe-labs/verify-done ~/.pi/agent/skills/verify-before-done
 
 # 其他 harness：放入对应 skills 目录即可（Agent Skills 标准布局）
 ```

@@ -1,5 +1,5 @@
 ---
-name: verify-before-done
+name: verify-done
 description: Hard gate before reporting any task as done. Use when finishing an implementation, bug fix, refactor, or script — and before marking a todo/task completed. Enforces a declared file scope, the verification ladder (static check → build → targeted tests → behavioral repro → read the diff), a leftover scan, and scope-accurate reporting. "Done" without a run check is forbidden. Do not use for reviewing diff quality beyond the self-read, or for the debugging process itself.
 ---
 
