@@ -9,11 +9,6 @@
 ## 安装
 
 ```bash
-# Pi
-pi install github:xinghe-labs/verify-done
-```
-
-```bash
 # Claude Code / 其他 harness
 npx skills add xinghe-labs/verify-done
 ```
