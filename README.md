@@ -17,13 +17,13 @@ npx skills add xinghe-labs/verify-done
 
 ## 核心机制
 
-- **三个触发锚点**：标记 todo 完成前 / 最终汇报前 / 说出禁语（"应该可以了"）时
-- **验证阶梯**（按改动规模伸缩）：静态检查 → 构建 → 针对性测试 → 行为复现 → 自读 diff，每级配有无基建时的降级手段
-- **副作用红线**：验证永远不许真实发邮件/扣款/调付费 API——必须 dry-run / sandbox / mock
-- **范围护栏（内置）**：编辑前声明改动范围；依赖、公共 API、schema、CI 属红档，必须先问
-- **反逃逸**：报"unverified"必须附尝试记录 + 缺失说明 + 用户自行验证的最短路径
-- **用户覆盖**：用户明确说"别验证"则照办，但汇报必须留痕"per your request, unverified"
-- **范围精确汇报**：Verified 必须列出跑了什么命令、结果、没覆盖什么
+- **[三个触发锚点](SKILL.md#the-gate--three-anchored-moments)**：标记 todo 完成前 / 最终汇报前 / 说出禁语（"应该可以了"）时
+- **[验证阶梯](SKILL.md#the-verification-ladder)**（按改动规模伸缩）：静态检查 → 构建 → 针对性测试 → 行为复现 → 自读 diff，每级配有无基建时的降级手段
+- **[副作用红线](SKILL.md#no-side-effects--verify-without-touching-the-real-world)**：验证永远不许真实发邮件/扣款/调付费 API——必须 dry-run / sandbox / mock
+- **[范围护栏（内置）](SKILL.md#scope-boundary--built-in)**：编辑前声明改动范围；依赖、公共 API、schema、CI 属红档，必须先问
+- **[反逃逸](SKILL.md#the-escape-hatch--its-anti-escape-clause)**：报"unverified"必须附尝试记录 + 缺失说明 + 用户自行验证的最短路径
+- **[用户覆盖](SKILL.md#user-override)**：用户明确说"别验证"则照办，但汇报必须留痕"per your request, unverified"
+- **[范围精确汇报](SKILL.md#reporting--scope-accurate-not-just-passfail)**：Verified 必须列出跑了什么命令、结果、没覆盖什么
 
 ## 设计原则
 
