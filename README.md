@@ -1,0 +1,35 @@
+# verify-before-done
+
+AI 编程 agent 的完成前自检 skill（Agent Skills 规范，适用于 Pi / Claude Code / 任何支持 SKILL.md 的 harness）。
+
+**解决的问题**：agent 把"写完了"当成"做完了"——没跑测试就说完成、验证失败就绕过去、顺手改了没让改的东西。这个 skill 是一道硬门禁：没有外部证据（真实跑过的检查），不许宣称完成。
+
+## 安装
+
+```bash
+# Pi
+git clone https://github.com/xinghe-labs/verify-before-done ~/.pi/agent/skills/verify-before-done
+
+# 其他 harness：放入对应 skills 目录即可（Agent Skills 标准布局）
+```
+
+## 核心机制
+
+- **三个触发锚点**：标记 todo 完成前 / 最终汇报前 / 说出禁语（"应该可以了"）时
+- **验证阶梯**（按改动规模伸缩）：静态检查 → 构建 → 针对性测试 → 行为复现 → 自读 diff，每级配有无基建时的降级手段
+- **副作用红线**：验证永远不许真实发邮件/扣款/调付费 API——必须 dry-run / sandbox / mock
+- **范围护栏（内置）**：编辑前声明改动范围；依赖、公共 API、schema、CI 属红档，必须先问
+- **反逃逸**：报"unverified"必须附尝试记录 + 缺失说明 + 用户自行验证的最短路径
+- **用户覆盖**：用户明确说"别验证"则照办，但汇报必须留痕"per your request, unverified"
+- **范围精确汇报**：Verified 必须列出跑了什么命令、结果、没覆盖什么
+
+## 设计原则
+
+- **比例原则**：改一个 typo 只需静态检查 + 读 diff，不触发全量构建
+- **超长构建例外**：单级几十分钟的检查可记录"末次全绿时间"代替阻塞式重跑，但必须具名
+- **自洽单文件**：无任何跨 skill 依赖，单装即可获得完整能力闭环
+- **迭代实证**：经三轮自我拷问 + 8 类用户画像（电商/运维/数据科学/独立开发/前端/移动端等）走查修出 9 个缺口
+
+## License
+
+MIT
