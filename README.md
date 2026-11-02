@@ -10,9 +10,12 @@
 
 ```bash
 # Pi
-git clone https://github.com/xinghe-labs/verify-done ~/.pi/agent/skills/verify-done
+pi install github:xinghe-labs/verify-done
+```
 
-# Claude Code / 其他 harness：放入对应 skills 目录即可（标准 SKILL.md 布局）
+```bash
+# Claude Code / 其他 harness
+npx skills add xinghe-labs/verify-done
 ```
 
 或直接复制 [SKILL.md](SKILL.md) 到你的 skills 目录。
